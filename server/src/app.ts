@@ -13,4 +13,10 @@ app.use(cors({
     
 }))
 
+// importing routes
+import property from './routes/property.routes'
+
+// config routes
+app.use('/api/v1/property',property)
+
 export default app;
