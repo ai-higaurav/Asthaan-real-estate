@@ -1,11 +1,11 @@
 import mongoose, { Document, Schema } from 'mongoose'
 
 interface IProperty extends Document {
-    listingType: 'Sale' | 'Rent';
-    propertyType: 'Apartment' | 'House' | 'Villa';
-    buildingType: 'Residential' | 'Commercial';
-    furnishedStatus: 'Furnished' | 'Semi Furnished' | 'Full Furnished';
-    possessionStatus: 'Ready To Move' | 'Under Construction';
+    listingType: 'sale' | 'rent';
+    propertyType: 'apartment' | 'house' | 'villa';
+    buildingType: 'residential' | 'commercial';
+    furnishedStatus: 'furnished' | 'semi Furnished' | 'full furnished';
+    possessionStatus: 'ready to move' | 'under constraction';
     propertyAge: number;
     unitNo: number;
     rooms: number;
@@ -33,27 +33,27 @@ interface IProperty extends Document {
 const propertySchema: Schema<IProperty> = new mongoose.Schema({
     listingType: {
         type: String,
-        enum: ['Sale', 'Rent'],
+        enum: ['sale', 'rent'],
         required: true
     },
     propertyType: {
         type: String,
-        enum: ['Apartment', 'House', 'Villa'],
+        enum: ["apartment", "house", "villa"],
         required: true
     },
     buildingType: {
         type: String,
-        enum: ['Residential', 'Commercial'],
+        enum: ["residential", "commercial"],
         required: true
     },
     furnishedStatus: {
         type: String,
-        enum: ['Furnished', 'Semi Furnished', 'Full Furnished'],
+        enum: ["furnished", "semi furnished", "full furnished"],
         required: true
     },
     possessionStatus: {
         type: String,
-        enum: ['Ready To Move', 'Under Construction'],
+        enum: ["ready to move", "under constraction"],
         required: true
     },
     propertyAge: {
