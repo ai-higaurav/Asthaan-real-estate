@@ -161,21 +161,24 @@ const propertyVal = z.object({
             required_error: 'State is required',
             invalid_type_error: "State must be a string",
         })
-        .transform((val) => val.toLowerCase()),
+        .transform((val) => val.toLowerCase())
+        .refine(val => val !=='' && val !==undefined ,{message:"State can't be empty or undefined"}),
 
     city: z
         .string({
             required_error: 'City is required',
             invalid_type_error: "City must be a string"
         })
-        .transform((val) => val.toLowerCase()),
+        .transform((val) => val.toLowerCase())
+        .refine(val => val !=='' && val !==undefined ,{message:"City can't be empty or undefined"}),
 
     locality: z
         .string({
             required_error: 'Locality is required',
             invalid_type_error: "Locality must be a string"
         })
-        .transform((val) => val.toLowerCase()),
+        .transform((val) => val.toLowerCase())
+        .refine(val => val !=='' && val !==undefined ,{message:"Locality can't be empty or undefined"}),
 
     pinCode: z
         .number({
@@ -186,6 +189,13 @@ const propertyVal = z.object({
         .gte(100000)
         .lte(999999)
         .refine((val) => /^\d{6}$/g.test(val.toString()), { message: "Pin code must be 6 digit" }),
+
+    phone: z.number({
+        required_error: 'Phone number is required',
+        invalid_type_error: "Phone number must be a number"
+    })
+    .int("A valid phone number is required")
+    .refine((value) => value.toString().length === 10, "Phone number must be 10 digits"),
 
     seller: z.
         string({

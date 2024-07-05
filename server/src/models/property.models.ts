@@ -86,7 +86,7 @@ const propertySchema: Schema<IProperty> = new mongoose.Schema({
     },
     floorNo: {
         type: Number,
-        required: true
+        
     },
     balconyType: {
         type: String,
@@ -117,11 +117,12 @@ const propertySchema: Schema<IProperty> = new mongoose.Schema({
     status: {
         type: String,
         enum: ['active', 'sold'],
-        required: true
+        default:"active"
     },
     isVerified: {
         type: Boolean,
-        required: true
+        required: true,
+        default:false
     },
     state: {
         type: String,
