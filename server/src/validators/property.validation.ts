@@ -108,9 +108,9 @@ const propertyVal = z.object({
         .min(1, "Price must be more than 1 Rs")
         .max(10000000, "Maximum price limit is 1 Cr"),
 
-    totalFloor: z
+    totalFloors: z
         .number({
-            required_error: "Total no of is required",
+            required_error: "Total no of floor is required",
             invalid_type_error: "Total no of floor must be a number"
         })
         .min(1, "Minimum 1 floor is required")
