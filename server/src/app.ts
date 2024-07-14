@@ -15,8 +15,10 @@ app.use(cors({
 
 // importing routes
 import property from './routes/property.routes'
+import user from './routes/user.routes'
 
 // config routes
 app.use('/api/v1/property',property)
+app.use('/api/v1/user', user)
 
 export default app;
